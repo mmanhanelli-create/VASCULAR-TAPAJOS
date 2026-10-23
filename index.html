@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="img/logo-vascular-tapajos.png">
+<title>Vascular Tapajós</title>
+<meta name="description" content="Dr. Marcos Manhanelli, angiologista e cirurgião vascular. Atendimento em Santarém, Óbidos, Oriximiná, Monte Alegre, Alenquer, Uruará, Juruti e Parintins. Varizes, vasinhos, safenas e ultrassom vascular.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* Layout: faixa de rio no topo (logo + médico), lista de próximas datas como "tabela de barco", cidades, tratamentos, sobre, rodapé com registros */
+:root{
+  --bg:#f3f7fa; --surface:#ffffff; --fg:#0f2340; --muted:#4b5f78; --line:#d6e1ea;
+  --navy:#0d2b55; --river:#1474c4; --red:#d6202b; --wa:#128c4a; --wa-fg:#ffffff;
+  --chip:#e6f0f8; --logo-bg:#ffffff;
+  --f-display:"Lexend",system-ui,sans-serif; --f-body:"Source Sans 3",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0b1624; --surface:#122236; --fg:#e8f0f8; --muted:#a3b6cb; --line:#22374f;
+  --navy:#9cc6f0; --river:#5aaeef; --red:#ff5a62; --wa:#1fa463; --wa-fg:#ffffff;
+  --chip:#1a3150; --logo-bg:#f3f7fa; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0b1624; --surface:#122236; --fg:#e8f0f8; --muted:#a3b6cb; --line:#22374f;
+  --navy:#9cc6f0; --river:#5aaeef; --red:#ff5a62; --wa:#1fa463; --wa-fg:#ffffff;
+  --chip:#1a3150; --logo-bg:#f3f7fa; color-scheme:dark}
+*{box-sizing:border-box}
+html{color-scheme:light}
+body{margin:0}
+img{max-width:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:18px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:980px;margin:0 auto}
+h1,h2,h3{font-family:var(--f-display);color:var(--navy);text-wrap:balance;line-height:1.2;margin:0}
+h2{font-size:1.6rem}
+h3{font-size:1.15rem}
+p{margin:0}
+section{padding-block:44px;border-top:1px solid var(--line);display:grid;gap:20px}
+.eyebrow{font-family:var(--f-display);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--red);font-weight:600}
+a{color:var(--river)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--river);outline-offset:2px}
+
+/* topo */
+header{padding-block:20px 8px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{background:var(--logo-bg);border-radius:14px;padding:8px 14px;display:inline-block}
+.logo img{height:48px;width:auto;display:block}
+.reg{font-size:.85rem;color:var(--muted);text-align:right}
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:center;padding-block:28px 44px}
+.hero h1{font-size:clamp(1.9rem,5vw,2.8rem)}
+.hero .lead{font-size:1.15rem;color:var(--muted);margin-top:14px;max-width:34ch}
+.hero .ctas{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+.photo{position:relative}
+.photo img{width:100%;max-width:100%;aspect-ratio:1;object-fit:cover;border-radius:24px;display:block}
+.photo::after{content:"";position:absolute;left:8%;right:8%;bottom:-10px;height:10px;border-radius:0 0 12px 12px;
+  background:linear-gradient(90deg,var(--river) 0 45%,var(--red) 45% 100%)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:600;font-size:1rem;
+  padding:14px 20px;border-radius:999px;text-decoration:none;border:2px solid transparent}
+.btn-wa{background:var(--wa);color:var(--wa-fg)}
+.btn-ghost{border-color:var(--line);color:var(--navy);background:var(--surface)}
+.btn svg{width:20px;height:20px;flex:none}
+
+/* próximas datas */
+.sched{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.row{display:grid;grid-template-columns:92px 1fr auto;gap:16px;align-items:center;padding:16px 18px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.date{font-family:var(--f-display);text-align:center;line-height:1.1;color:var(--navy)}
+.date b{display:block;font-size:1.9rem;font-variant-numeric:tabular-nums}
+.date small{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.date.tbd b{font-size:1rem;padding-block:8px;color:var(--muted)}
+.where{min-width:0}
+.where h3{font-size:1.2rem}
+.where p{color:var(--muted);font-size:.98rem}
+.state{font-size:.85rem;font-weight:700;color:var(--red)}
+.row .btn{padding:10px 16px;font-size:.92rem}
+.note{font-size:.95rem;color:var(--muted)}
+
+/* cidades */
+.cities{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.city{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:6px;align-content:start}
+.city .uf{font-size:.75rem;letter-spacing:.1em;color:var(--muted);font-weight:700}
+.city p{font-size:.98rem;color:var(--muted)}
+.city .num{font-variant-numeric:tabular-nums;color:var(--fg);font-weight:600}
+.city .btn{justify-self:start;margin-top:6px;padding:10px 16px;font-size:.92rem}
+
+/* tratamentos */
+.treat{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 32px}
+.treat div{display:grid;gap:6px}
+.treat p{color:var(--muted)}
+.symptoms{display:flex;flex-wrap:wrap;gap:8px}
+.symptoms span{background:var(--chip);color:var(--navy);border-radius:999px;padding:6px 14px;font-size:.95rem;font-weight:600}
+
+/* sobre */
+.about{display:grid;gap:12px;max-width:65ch}
+.about ul{margin:0;padding-left:20px;display:grid;gap:6px;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);padding-block:28px 40px;font-size:.92rem;color:var(--muted);display:grid;gap:8px}
+footer strong{color:var(--fg)}
+
+@media (max-width:720px){
+  .hero{grid-template-columns:1fr}
+  .photo{max-width:340px}
+  .treat{grid-template-columns:1fr}
+  .row{grid-template-columns:72px 1fr}
+  .row .btn{grid-column:1/-1;justify-self:stretch;justify-content:center}
+  .reg{text-align:left}
+}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+<header>
+  <a class="logo" href="#inicio" aria-label="Vascular Tapajós"><img src="img/logo-vascular-tapajos.png" alt="Vascular Tapajós"></a>
+  <div class="reg">Dr. Marcos Manhanelli<br>CRM-PA 20.033 · RQE 9676<br>CRM-AM 14.287 · RQE 6608</div>
+</header>
+
+<div class="hero" id="inicio">
+  <div>
+    <div class="eyebrow">Angiologia e Cirurgia Vascular</div>
+    <h1>Cirurgião vascular no Oeste do Pará e em Parintins</h1>
+    <p class="lead">Atendo em Santarém e, todo mês, em Óbidos, Oriximiná, Monte Alegre, Alenquer, Uruará, Juruti e Parintins. Consulta e ultrassom vascular no mesmo atendimento.</p>
+    <div class="ctas">
+      <a class="btn btn-wa" href="#datas">Ver próximas datas</a>
+      <a class="btn btn-ghost" href="#tratamentos">O que eu trato</a>
+    </div>
+  </div>
+  <div class="photo"><img src="img/dr-marcos-manhanelli.jpg" alt="Dr. Marcos Manhanelli, cirurgião vascular" width="640" height="640"></div>
+</div>
+
+<section id="datas">
+  <div class="eyebrow">Agenda do itinerante</div>
+  <h2>Próximos atendimentos</h2>
+  <div class="sched" id="sched">
+    <!-- DATAS: atualizar todo mês. data-date = AAAA-MM-DD; data-tbd = data a confirmar -->
+    <div class="row" data-date="2026-11-04" data-city="Parintins">
+      <div class="date"><b>04</b><small>nov · qua</small></div>
+      <div class="where"><h3>Parintins (AM)</h3><p>Clínica CDI</p></div>
+      <a class="btn btn-wa" data-wa="5592988175410" href="#">Agendar</a>
+    </div>
+    <div class="row" data-date="2026-11-05" data-city="Juruti">
+      <div class="date"><b>05</b><small>nov · qui</small></div>
+      <div class="where"><h3>Juruti</h3><p>Prosalis Clínica e Diagnóstico</p></div>
+      <a class="btn btn-wa" data-wa="5593991537575" href="#">Agendar</a>
+    </div>
+    <div class="row" data-tbd data-city="Uruará">
+      <div class="date tbd"><b>a confirmar</b><small>novembro</small></div>
+      <div class="where"><h3>Uruará</h3><p>Laboratório Central</p></div>
+      <a class="btn btn-wa" data-wa="5593992193319" href="#">Consultar data</a>
+    </div>
+    <div class="row" data-date="2026-11-10" data-city="Monte Alegre">
+      <div class="date"><b>10</b><small>nov · ter</small></div>
+      <div class="where"><h3>Monte Alegre</h3><p>Clínica São Francisco de Assis</p></div>
+      <a class="btn btn-wa" data-wa="5593991017566" href="#">Agendar</a>
+    </div>
+    <div class="row" data-date="2026-11-11" data-city="Alenquer">
+      <div class="date"><b>11</b><small>nov · qua</small></div>
+      <div class="where"><h3>Alenquer</h3><p>Hospital Santo Antônio</p></div>
+      <a class="btn btn-wa" data-wa="5593984121915" href="#">Agendar</a>
+    </div>
+    <div class="row" data-date="2026-11-12" data-city="Oriximiná">
+      <div class="date"><b>12</b><small>nov · qui</small></div>
+      <div class="where"><h3>Oriximiná</h3><p>Hospital Santo Antônio</p></div>
+      <a class="btn btn-wa" data-wa="5593991675288" href="#">Agendar</a>
+    </div>
+    <div class="row" data-date="2026-11-13" data-city="Óbidos">
+      <div class="date"><b>13</b><small>nov · sex</small></div>
+      <div class="where"><h3>Óbidos</h3><p>Clínica Fisio Vip</p></div>
+      <a class="btn btn-wa" data-wa="5593991071200" href="#">Agendar</a>
+    </div>
+  </div>
+  <p class="note">As vagas por cidade são limitadas. O agendamento é feito pelo WhatsApp da clínica de cada cidade.</p>
+</section>
+
+<section id="cidades">
+  <div class="eyebrow">Onde atendo</div>
+  <h2>Clínicas parceiras</h2>
+  <div class="cities">
+    <div class="city"><span class="uf">SANTARÉM · PA</span><h3>Consultório</h3><p>Centro Clínico João XXIII, Tv. Silvino Pinto, 913. Dentro da Clínica Hope, 1º andar (elevador).</p><p class="num">(93) 99118-5001</p><a class="btn btn-wa" data-wa="5593991185001" data-city="Santarém" href="#">Agendar</a></div>
+    <div class="city"><span class="uf">ÓBIDOS · PA</span><h3>Clínica Fisio Vip</h3><p>Av. Pref. Nelson Souza, 437, Santa Terezinha.</p><p class="num">(93) 99107-1200</p><a class="btn btn-wa" data-wa="5593991071200" data-city="Óbidos" href="#">Agendar</a></div>
+    <div class="city"><span class="uf">ORIXIMINÁ · PA</span><h3>Hospital Santo Antônio</h3><p>R. Barão do Rio Branco, 2873, Santa Terezinha.</p><p class="num">(93) 99167-5288</p><a class="btn btn-wa" data-wa="5593991675288" data-city="Oriximiná" href="#">Agendar</a></div>
+    <div class="city"><span class="uf">MONTE ALEGRE · PA</span><h3>Clínica São Francisco de Assis</h3><p>Rua Rui Barbosa, 575, Cidade Alta.</p><p class="num">(93) 99101-7566</p><a class="btn btn-wa" data-wa="5593991017566" data-city="Monte Alegre" href="#">Agendar</a></div>
+    <div class="city"><span class="uf">ALENQUER · PA</span><h3>Hospital Santo Antônio</h3><p>R. Dr. Pedro Vicente, 560.</p><p class="num">(93) 98412-1915</p><a class="btn btn-wa" data-wa="5593984121915" data-city="Alenquer" href="#">Agendar</a></div>
+    <div class="city"><span class="uf">URUARÁ · PA</span><h3>Laboratório Central</h3><p>Av. Goiás, esquina com Av. Pará, Centro.</p><p class="num">(93) 99219-3319</p><a class="btn btn-wa" data-wa="5593992193319" data-city="Uruará" href="#">Agendar</a></div>
+    <div class="city"><span class="uf">JURUTI · PA</span><h3>Prosalis Clínica e Diagnóstico</h3><p>R. Marechal Rondon.</p><p class="num">(93) 99153-7575</p><a class="btn btn-wa" data-wa="5593991537575" data-city="Juruti" href="#">Agendar</a></div>
+    <div class="city"><span class="uf">PARINTINS · AM</span><h3>Clínica CDI</h3><p>Av. Amazonas, Centro.</p><p class="num">(92) 98817-5410</p><a class="btn btn-wa" data-wa="5592988175410" data-city="Parintins" href="#">Agendar</a></div>
+  </div>
+</section>
+
+<section id="tratamentos">
+  <div class="eyebrow">Quando procurar</div>
+  <h2>O que eu trato</h2>
+  <div class="symptoms"><span>Dor nas pernas</span><span>Peso e cansaço</span><span>Inchaço</span><span>Varizes</span><span>Vasinhos</span><span>Feridas que não cicatrizam</span><span>Pé diabético</span></div>
+  <div class="treat">
+    <div><h3>Ultrassom vascular no mesmo atendimento</h3><p>Faço a consulta e o exame de ultrassom das veias e artérias na mesma visita. Você sai sabendo o que tem e qual é o próximo passo.</p></div>
+    <div><h3>Vasinhos e varizes com espuma</h3><p>Escleroterapia com espuma, feita no consultório. O número de sessões depende de cada caso e é definido na avaliação.</p></div>
+    <div><h3>Veias safenas doentes</h3><p>Tratamento da safena no consultório, sem corte, sem raquianestesia e sem internação. A técnica é escolhida conforme o calibre da veia no ultrassom.</p></div>
+    <div><h3>Feridas e pé diabético</h3><p>Avaliação da circulação e tratamento de feridas crônicas nas pernas e nos pés, com atenção especial ao paciente diabético.</p></div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="eyebrow">Sobre</div>
+  <h2>Dr. Marcos Manhanelli</h2>
+  <div class="about">
+    <p>Angiologista e cirurgião vascular, baseado em Santarém. Levo consulta, ultrassom e procedimentos para cidades onde o paciente teria que viajar para ver um especialista vascular.</p>
+    <ul>
+      <li>Membro Efetivo da Sociedade Brasileira de Angiologia e de Cirurgia Vascular (SBACV)</li>
+      <li>Subcoordenador do Comitê Nacional do Pé Diabético da SBACV (2026/2027)</li>
+      <li>Coautor da diretriz de pé diabético da SBACV (2023)</li>
+      <li>Palestrante em congressos nacionais de cirurgia vascular</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Dr. Marcos Antonio B. Manhanelli Filho</strong> · Angiologista e Cirurgião Vascular</p>
+  <p>CRM-PA 20.033 · RQE 9676 &nbsp;|&nbsp; CRM-AM 14.287 · RQE 6608</p>
+  <p>Vascular Tapajós · Santarém, Pará</p>
+</footer>
+</div>
+
+<script>
+(function(){
+  var today=new Date(); today.setHours(0,0,0,0);
+  // esconde data que já passou e troca por "nova data em breve"
+  document.querySelectorAll('#sched .row[data-date]').forEach(function(r){
+    var p=r.getAttribute('data-date').split('-');
+    var d=new Date(+p[0],p[1]-1,+p[2]);
+    if(d<today){
+      r.querySelector('.date').classList.add('tbd');
+      r.querySelector('.date').innerHTML='<b>em breve</b><small>nova data</small>';
+      var b=r.querySelector('.btn'); b.textContent='Consultar data';
+    }
+  });
+  // monta links do WhatsApp com mensagem pronta
+  document.querySelectorAll('[data-wa]').forEach(function(a){
+    var city=a.getAttribute('data-city')||a.closest('[data-city]').getAttribute('data-city');
+    var msg='Olá! Vi o site do Dr. Marcos Manhanelli e quero agendar em '+city+'.';
+    a.href='https://wa.me/'+a.getAttribute('data-wa')+'?text='+encodeURIComponent(msg);
+    a.target='_blank'; a.rel='noopener';
+  });
+})();
+</script>
+
+</body>
+</html>
