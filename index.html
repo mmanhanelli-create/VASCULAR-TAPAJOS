@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="img/logo-vascular-tapajos.png">
 <title>Vascular Tapajós</title>
-<meta name="description" content="Dr. Marcos Manhanelli, angiologista e cirurgião vascular. Atendimento em Santarém, Óbidos, Oriximiná, Monte Alegre, Alenquer, Uruará, Juruti e Parintins. Varizes, vasinhos, safenas e ultrassom vascular.">
+<meta name="description" content="Dr. Marcos Manhanelli, angiologista e cirurgião vascular. Atendimento em Santarém, Óbidos, Oriximiná, Monte Alegre, Alenquer, Juruti e Parintins. Varizes, vasinhos, safenas e ultrassom vascular.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
@@ -42,10 +42,12 @@ a{color:var(--river)}
 a:focus-visible,button:focus-visible{outline:3px solid var(--river);outline-offset:2px}
 
 /* topo */
-header{padding-block:20px 8px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.logo{background:var(--logo-bg);border-radius:14px;padding:8px 14px;display:inline-block}
-.logo img{height:48px;width:auto;display:block}
-.reg{font-size:.85rem;color:var(--muted);text-align:right}
+header{padding-block:28px 8px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.logo{display:inline-block}
+.logo img{height:clamp(84px,18vw,120px);width:auto;display:block}
+.reg{font-size:.85rem;color:var(--muted);text-align:center}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .logo{background:var(--logo-bg);border-radius:16px;padding:8px 16px}}
+:root[data-theme="dark"] .logo{background:var(--logo-bg);border-radius:16px;padding:8px 16px}
 .hero{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:center;padding-block:28px 44px}
 .hero h1{font-size:clamp(1.9rem,5vw,2.8rem)}
 .hero .lead{font-size:1.15rem;color:var(--muted);margin-top:14px;max-width:34ch}
@@ -103,7 +105,7 @@ footer strong{color:var(--fg)}
   .treat{grid-template-columns:1fr}
   .row{grid-template-columns:72px 1fr}
   .row .btn{grid-column:1/-1;justify-self:stretch;justify-content:center}
-  .reg{text-align:left}
+
 }
 </style>
 </head>
@@ -120,7 +122,7 @@ footer strong{color:var(--fg)}
   <div>
     <div class="eyebrow">Angiologia e Cirurgia Vascular</div>
     <h1>Cirurgião vascular no Oeste do Pará e em Parintins</h1>
-    <p class="lead">Atendo em Santarém e, todo mês, em Óbidos, Oriximiná, Monte Alegre, Alenquer, Uruará, Juruti e Parintins. Consulta e ultrassom vascular no mesmo atendimento.</p>
+    <p class="lead">Atendo em Santarém e, todo mês, em Óbidos, Oriximiná, Monte Alegre, Alenquer, Juruti e Parintins. Consulta e ultrassom vascular no mesmo atendimento.</p>
     <div class="ctas">
       <a class="btn btn-wa" href="#datas">Ver próximas datas</a>
       <a class="btn btn-ghost" href="#tratamentos">O que eu trato</a>
