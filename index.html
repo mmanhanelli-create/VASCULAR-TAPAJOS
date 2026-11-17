@@ -262,6 +262,16 @@ footer strong{color:var(--fg)}
     var msg='Olá! Vi o site do Dr. Marcos Manhanelli e quero agendar em '+city+'.';
     a.href='https://wa.me/'+a.getAttribute('data-wa')+'?text='+encodeURIComponent(msg);
     a.target='_blank'; a.rel='noopener';
+    // Registra interesse por cidade sem coletar nome, telefone ou mensagem do paciente.
+    a.addEventListener('click', function(){
+      if (typeof gtag === 'function') {
+        gtag('event', 'whatsapp_click', {
+          cidade: city,
+          origem_botao: a.textContent.trim(),
+          destino: 'whatsapp'
+        });
+      }
+    });
   });
 })();
 </script>
